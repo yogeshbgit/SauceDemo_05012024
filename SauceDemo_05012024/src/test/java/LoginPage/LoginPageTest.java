@@ -3,6 +3,7 @@ package LoginPage;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -23,6 +24,15 @@ public class LoginPageTest extends BaseRepository{
 	}
 	
 	@Test(priority=0)
+	public void validateTitle()
+	{
+		String expectedTitle = "Swag Labs";
+		String actualTitle =driver.getTitle();
+		Assert.assertEquals(expectedTitle, actualTitle);
+	}
+	
+	
+	@Test(priority=1)
 	public void validateLoginPage()
 	{
 		lp = new LoginPage(driver);

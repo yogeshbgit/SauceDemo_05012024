@@ -2,24 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-05T20:41:28 IST" name="Default suite" finished-at="2024-01-05T20:41:36 IST" duration-ms="8670">
+  <suite started-at="2024-01-06T10:38:16 IST" name="Default suite" finished-at="2024-01-06T10:38:25 IST" duration-ms="8389">
     <groups>
     </groups>
-    <test started-at="2024-01-05T20:41:28 IST" name="Default test" finished-at="2024-01-05T20:41:36 IST" duration-ms="8670">
-      <class name="LoginPage.LoginPageTest">
-        <test-method is-config="true" signature="initialize()[pri:0, instance:LoginPage.LoginPageTest@55b7a4e0]" started-at="2024-01-05T20:41:28 IST" name="initialize" finished-at="2024-01-05T20:41:35 IST" duration-ms="7271" status="PASS">
+    <test started-at="2024-01-06T10:38:16 IST" name="Default test" finished-at="2024-01-06T10:38:25 IST" duration-ms="8389">
+      <class name="LoginPage.HomePageTest">
+        <test-method is-config="true" signature="initialize()[pri:0, instance:LoginPage.HomePageTest@6eda5c9]" started-at="2024-01-06T10:38:16 IST" name="initialize" finished-at="2024-01-06T10:38:25 IST" duration-ms="8219" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method signature="validateLoginPage()[pri:0, instance:LoginPage.LoginPageTest@55b7a4e0]" started-at="2024-01-05T20:41:35 IST" name="validateLoginPage" finished-at="2024-01-05T20:41:36 IST" duration-ms="745" status="PASS">
+        <test-method signature="validateShoppingList()[pri:0, instance:LoginPage.HomePageTest@6eda5c9]" started-at="2024-01-06T10:38:25 IST" name="validateShoppingList" finished-at="2024-01-06T10:38:25 IST" duration-ms="21" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateLoginPage -->
-        <test-method is-config="true" signature="browserCloser()[pri:0, instance:LoginPage.LoginPageTest@55b7a4e0]" started-at="2024-01-05T20:41:36 IST" name="browserCloser" finished-at="2024-01-05T20:41:36 IST" duration-ms="455" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserCloser -->
-      </class> <!-- LoginPage.LoginPageTest -->
+        </test-method> <!-- validateShoppingList -->
+      </class> <!-- LoginPage.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
