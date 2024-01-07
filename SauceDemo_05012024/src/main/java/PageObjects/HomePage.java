@@ -24,6 +24,7 @@ public class HomePage {
 	By filterOptions = By.cssSelector(".product_sort_container option");
 	By pricelist = By.cssSelector(".inventory_item_price");
 	By Label = By.cssSelector(".inventory_item_description");
+	By addCart = By.xpath("//button[text()='Add to cart']");
 	
 	
 	public List<String> getProductList()
@@ -35,7 +36,7 @@ public class HomePage {
 		for(WebElement l : list)
 		{
 			actualProductList.add(l.getText())	;
-			//System.out.println(l.getText());
+			System.out.println(l.getText());
 		}
 		return actualProductList;
 	}
@@ -83,6 +84,13 @@ public class HomePage {
 	{
 		Select filterDropDown = new Select(driver.findElement(filter));
 		filterDropDown.selectByVisibleText(Filter);
+	}
+	
+	public List<WebElement> clickAddtoCart()
+	{
+		List<WebElement> click = driver.findElements(addCart);
+		
+		return click;
 	}
 
 }

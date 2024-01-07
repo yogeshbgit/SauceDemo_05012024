@@ -81,7 +81,30 @@ public class HomePageTest extends BaseRepository{
 		
 	}
 	
+	
 	@Test(priority=2)
+	public void validateAddtoCart() throws InterruptedException
+	{
+		//String productNametoaddCart = "Sauce Labs Fleece Jacket";
+		List<String>productTobeAddedCart = new ArrayList<>(Arrays.asList("Sauce Labs Fleece Jacket","Sauce Labs Onesie","Sauce Labs Bike Light","Sauce Labs Backpack"));
+		for(int i=0;i<productTobeAddedCart.size();i++)
+		{
+			for(int j=0;j<actualProductList.size();j++) 
+			{
+				
+				if(actualProductList.get(j).equalsIgnoreCase(productTobeAddedCart.get(i)))
+				{
+					Thread.sleep(1000);
+					hp.clickAddtoCart().get(j).click();
+					System.out.println("Product:"+actualProductList.get(j)+" added into cart");
+					break;
+				}
+			}
+		}
+			
+	}
+	
+	@Test(priority=3,enabled=false)
 	public void validateFilterOption2() throws InterruptedException
 	{
 		List<String> filterOptions = hp.getFilterOptions();
@@ -98,7 +121,7 @@ public class HomePageTest extends BaseRepository{
 		
 	} 
 	
-	@Test(priority=3,enabled=false)
+	@Test(priority=4,enabled=false)
 	public void validateFilterOption3() throws InterruptedException
 	{
 		List<String> filterOptions = hp.getFilterOptions();
@@ -116,7 +139,10 @@ public class HomePageTest extends BaseRepository{
 		
 	} 
 	
-	@AfterTest
+	
+
+	
+	@AfterTest(enabled=false)
 	public void browserCloser() throws InterruptedException
 	{
 		Thread.sleep(1500);
