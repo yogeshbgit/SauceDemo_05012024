@@ -82,7 +82,40 @@ public class HomePageTest extends BaseRepository{
 	}
 	
 	
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
+	public void validateFilterOption2() throws InterruptedException
+	{
+		List<String> filterOptions = hp.getFilterOptions();
+		String option1 = filterOptions.get(0);
+		String option2 = filterOptions.get(1);
+		String option3 = filterOptions.get(2);
+		String option4 = filterOptions.get(3);
+		//System.out.println("option1:"+option1+",option2:"+ option2+",option3:"+option3+",option4:"+option4);
+		hp.getFilter(option2);
+		Thread.sleep(1000);
+		List<String> lists = hp.getProductList();
+		Collections.sort(actualProductList,Collections.reverseOrder());
+		Assert.assertEquals(actualProductList, lists);
+		
+	} 
+	
+	@Test(priority=3,enabled=false)
+	public void validateFilterOption3() throws InterruptedException
+	{
+		List<String> filterOptions = hp.getFilterOptions();
+		String option1 = filterOptions.get(0);
+		String option2 = filterOptions.get(1);
+		String option3 = filterOptions.get(2);
+		String option4 = filterOptions.get(3); 
+		hp.getFilter(option3);
+		Thread.sleep(1000);
+		List<String> lists = hp.getPiceList();
+		
+		Collections.sort(priceList);
+		Assert.assertEquals(priceList, lists);
+	} 
+	
+	@Test(priority=4)
 	public void validateAddtoCart() throws InterruptedException
 	{
 		//String productNametoaddCart = "Sauce Labs Fleece Jacket";
@@ -104,44 +137,14 @@ public class HomePageTest extends BaseRepository{
 			
 	}
 	
-	@Test(priority=3,enabled=false)
-	public void validateFilterOption2() throws InterruptedException
+	@Test(priority=5)
+	public void validateShoppingCart()
 	{
-		List<String> filterOptions = hp.getFilterOptions();
-		String option1 = filterOptions.get(0);
-		String option2 = filterOptions.get(1);
-		String option3 = filterOptions.get(2);
-		String option4 = filterOptions.get(3);
-		//System.out.println("option1:"+option1+",option2:"+ option2+",option3:"+option3+",option4:"+option4);
-		hp.getFilter(option2);
-		Thread.sleep(1000);
-		List<String> lists = hp.getProductList();
-		Collections.sort(actualProductList,Collections.reverseOrder());
-		Assert.assertEquals(actualProductList, lists);
+		hp.clickOnShoppingCart();
 		
-	} 
-	
-	@Test(priority=4,enabled=false)
-	public void validateFilterOption3() throws InterruptedException
-	{
-		List<String> filterOptions = hp.getFilterOptions();
-		String option1 = filterOptions.get(0);
-		String option2 = filterOptions.get(1);
-		String option3 = filterOptions.get(2);
-		String option4 = filterOptions.get(3); 
-		hp.getFilter(option3);
-		Thread.sleep(1000);
-		List<String> lists = hp.getPiceList();
 		
-		Collections.sort(priceList);
-		Assert.assertEquals(priceList, lists);
+	}
 
-		
-	} 
-	
-	
-
-	
 	@AfterTest(enabled=false)
 	public void browserCloser() throws InterruptedException
 	{
@@ -149,10 +152,7 @@ public class HomePageTest extends BaseRepository{
 		driver.close();
 	}
 	
-	
-	
-	
-	
+
 	//for login Only
 	public void login()
 	{

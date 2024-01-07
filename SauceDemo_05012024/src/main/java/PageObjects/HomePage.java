@@ -25,6 +25,7 @@ public class HomePage {
 	By pricelist = By.cssSelector(".inventory_item_price");
 	By Label = By.cssSelector(".inventory_item_description");
 	By addCart = By.xpath("//button[text()='Add to cart']");
+	By shoppingCart = By.cssSelector(".shopping_cart_link");
 	
 	
 	public List<String> getProductList()
@@ -91,6 +92,11 @@ public class HomePage {
 		List<WebElement> click = driver.findElements(addCart);
 		
 		return click;
+	}
+	public void clickOnShoppingCart()
+	{
+		driver.findElement(shoppingCart).click();
+		
 	}
 
 }
