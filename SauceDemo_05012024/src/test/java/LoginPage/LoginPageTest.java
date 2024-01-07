@@ -14,7 +14,7 @@ import Resources.BaseRepository;
 public class LoginPageTest extends BaseRepository{
 	
 	
-	WebDriver driver;
+	public WebDriver driver;
 	LoginPage lp;
 	
 	@BeforeTest()

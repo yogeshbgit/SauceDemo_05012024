@@ -5,8 +5,9 @@
     <classes>
       <class name="LoginPage.HomePageTest">
         <methods>
+          <include name="validateFilterOption3"/>
           <include name="initialize"/>
-          <include name="validateShoppingList"/>
+          <include name="browserCloser"/>
         </methods>
       </class> <!-- LoginPage.HomePageTest -->
     </classes>
