@@ -1,6 +1,7 @@
 package LoginPage;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -16,11 +17,14 @@ public class LoginPageTest extends BaseRepository{
 	
 	public WebDriver driver;
 	LoginPage lp;
+	Logger log;
 	
 	@BeforeTest()
 	public void initialize() throws IOException
 	{
 		driver=initializer();
+		log=logger();
+		log.info("Browser Invoked");
 	}
 	
 	@Test(priority=0)
@@ -29,6 +33,7 @@ public class LoginPageTest extends BaseRepository{
 		String expectedTitle = "Swag Labs";
 		String actualTitle =driver.getTitle();
 		Assert.assertEquals(expectedTitle, actualTitle);
+		log.info("Validating Title");
 	}
 	
 	
@@ -37,8 +42,11 @@ public class LoginPageTest extends BaseRepository{
 	{
 		lp = new LoginPage(driver);
 		lp.enterUserName("standard_user");
+		log.info("Entered User Name");
 		lp.enterPassword("secret_sauce");
+		log.info("Entered Password");
 		lp.clickOnLoginButton();
+		log.info("Clicked On Login Button");
 	}
 
 	
@@ -46,5 +54,6 @@ public class LoginPageTest extends BaseRepository{
 	public void browserCloser()
 	{
 		driver.close();
+		log.info("Browser Closed");
 	}
 }

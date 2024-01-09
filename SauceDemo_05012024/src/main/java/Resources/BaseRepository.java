@@ -3,7 +3,9 @@ package Resources;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Logger;
 
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -11,8 +13,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseRepository {
 	
-	WebDriver driver;
-	Properties pro;
+	public WebDriver driver;
+	public Properties pro;
+	public Logger logger ;
+	
 	public WebDriver initializer() throws IOException
 	{
 		
@@ -42,6 +46,13 @@ public class BaseRepository {
 		
 		driver.manage().window().maximize();
 		return driver;
+	}
+	
+	public Logger logger() 
+	{
+		logger = Logger.getLogger("e-commerce");
+		PropertyConfigurator.configure("Log4j.properties");
+		return logger;
 	}
 	
 

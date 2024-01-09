@@ -93,9 +93,10 @@ public class HomePage {
 		
 		return click;
 	}
-	public void clickOnShoppingCart()
+	public ShoppingListPage clickOnShoppingCart()
 	{
 		driver.findElement(shoppingCart).click();
+		return new ShoppingListPage(driver);
 		
 	}
 

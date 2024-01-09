@@ -5,6 +5,7 @@
     <classes>
       <class name="HomePage.HomePageTest"/>
       <class name="LoginPage.LoginPageTest"/>
+      <class name="ShoppingListPage.ShoppingListPageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
