@@ -1,12 +1,18 @@
 package Resources;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,7 +21,6 @@ public class BaseRepository {
 	
 	public WebDriver driver;
 	public Properties pro;
-	public Logger logger ;
 	
 	public WebDriver initializer() throws IOException
 	{
@@ -48,12 +53,21 @@ public class BaseRepository {
 		return driver;
 	}
 	
-	public Logger logger() 
+	public String getScreenshotPath(String methodname,WebDriver driver) throws IOException
 	{
-		logger = Logger.getLogger("e-commerce");
-		PropertyConfigurator.configure("Log4j.properties");
-		return logger;
+		
+		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	    String  destinationfile = System.getProperty("user.dir")+"\\ExtentReports\\"+methodname+".png";
+	     FileUtils.copyFile(srcFile, new File(destinationfile));
+	     
+		 return destinationfile;
+		
 	}
 	
+	public void scrolltillelement(WebDriver driver,WebElement element)
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView()",element);
+	}
 
 }

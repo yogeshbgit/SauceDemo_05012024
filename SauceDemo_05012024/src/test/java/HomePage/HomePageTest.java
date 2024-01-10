@@ -17,11 +17,11 @@ import Resources.BaseRepository;
 
 public class HomePageTest extends BaseRepository{
 	
-	WebDriver driver;
-	HomePage hp ;
-	List<String> expectedProductList;
-	List<String> actualProductList;
-	List<String>priceList;
+	public WebDriver driver;
+	public HomePage hp ;
+	public List<String> expectedProductList;
+	public List<String> actualProductList;
+	public List<String>priceList;
 	
 	
 	@BeforeTest
@@ -82,7 +82,7 @@ public class HomePageTest extends BaseRepository{
 	}
 	
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void validateFilterOption2() throws InterruptedException
 	{
 		List<String> filterOptions = hp.getFilterOptions();
@@ -96,6 +96,7 @@ public class HomePageTest extends BaseRepository{
 		List<String> lists = hp.getProductList();
 		Collections.sort(actualProductList,Collections.reverseOrder());
 		Assert.assertEquals(actualProductList, lists);
+		Thread.sleep(2000);
 		
 	} 
 	
@@ -110,16 +111,14 @@ public class HomePageTest extends BaseRepository{
 		hp.getFilter(option3);
 		Thread.sleep(1000);
 		List<String> lists = hp.getPiceList();
-		
 		Collections.sort(priceList);
 		Assert.assertEquals(priceList, lists);
 	} 
 	
-	@Test(priority=4)
+	@Test(priority=4,enabled=false)
 	public void validateAddtoCart() throws InterruptedException
 	{
-		//String productNametoaddCart = "Sauce Labs Fleece Jacket";
-		List<String>productTobeAddedCart = new ArrayList<>(Arrays.asList("Sauce Labs Fleece Jacket","Sauce Labs Onesie","Sauce Labs Bike Light","Sauce Labs Backpack"));
+		List<String>productTobeAddedCart = new ArrayList<>(Arrays.asList("Sauce Labs Fleece Jacket","Sauce Labs Onesie","Sauce Labs Bolt T-Shirt","Sauce Labs Backpack"));
 		for(int i=0;i<productTobeAddedCart.size();i++)
 		{
 			for(int j=0;j<actualProductList.size();j++) 
@@ -137,7 +136,7 @@ public class HomePageTest extends BaseRepository{
 			
 	}
 	
-	@Test(priority=5)
+	@Test(priority=5,enabled=false)
 	public void validateShoppingCart()
 	{
 		hp.clickOnShoppingCart();
