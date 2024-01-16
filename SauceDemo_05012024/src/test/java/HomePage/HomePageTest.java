@@ -13,6 +13,7 @@ import org.testng.annotations.*;
 
 import LoginPage.LoginPageTest;
 import PageObjects.HomePage;
+import PageObjects.ShoppingListPage;
 import Resources.BaseRepository;
 
 public class HomePageTest extends BaseRepository{
@@ -82,7 +83,7 @@ public class HomePageTest extends BaseRepository{
 	}
 	
 	
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled=false)
 	public void validateFilterOption2() throws InterruptedException
 	{
 		List<String> filterOptions = hp.getFilterOptions();
@@ -115,7 +116,7 @@ public class HomePageTest extends BaseRepository{
 		Assert.assertEquals(priceList, lists);
 	} 
 	
-	@Test(priority=4,enabled=false)
+	@Test(priority=4,enabled=true)
 	public void validateAddtoCart() throws InterruptedException
 	{
 		List<String>productTobeAddedCart = new ArrayList<>(Arrays.asList("Sauce Labs Fleece Jacket","Sauce Labs Onesie","Sauce Labs Bolt T-Shirt","Sauce Labs Backpack"));
@@ -136,14 +137,19 @@ public class HomePageTest extends BaseRepository{
 			
 	}
 	
-	@Test(priority=5,enabled=false)
-	public void validateShoppingCart()
+
+	
+	
+	@Test(priority=5)
+	public void validateShoppingList()
 	{
 		hp.clickOnShoppingCart();
-		
+		ShoppingListPage shp = new ShoppingListPage(driver);
+		shp.getShoppingList();
 		
 	}
-
+	
+	
 	@AfterTest(enabled=false)
 	public void browserCloser() throws InterruptedException
 	{

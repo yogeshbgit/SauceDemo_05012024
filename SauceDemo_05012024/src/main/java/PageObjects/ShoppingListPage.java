@@ -27,7 +27,7 @@ public class ShoppingListPage {
 		for(WebElement l:list)
 		{
 			shoppingList.add(l.getText());
-			System.out.println("shopping List"+l.getText());
+			System.out.println("shopping List:"+l.getText());
 		}
 	}
 	
